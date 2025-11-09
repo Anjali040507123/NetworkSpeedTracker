@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.network.speedtracking.HistoryController"
+            prefWidth="600" prefHeight="500">
+
+    <children>
+        <VBox spacing="15" layoutX="20" layoutY="20" prefWidth="560" prefHeight="460">
+
+            <!-- 🔹 Record selection section -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Number of Records:"/>
+                <ComboBox fx:id="recordSelector" prefWidth="100" onAction="#loadChartData"/>
+                <Button text="Load" onAction="#loadChartData"/>
+            </HBox>
+
+            <!-- 📋 Table for history -->
+            <TableView fx:id="tableView" prefHeight="250" prefWidth="560">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="pingColumn" text="Ping (ms)" prefWidth="100"/>
+                    <TableColumn fx:id="downloadColumn" text="Download (Mbps)" prefWidth="140"/>
+                    <TableColumn fx:id="uploadColumn" text="Upload (Mbps)" prefWidth="140"/>
+                    <TableColumn fx:id="timestampColumn" text="Timestamp" prefWidth="150"/>
+                </columns>
+            </TableView>
+
+        <!-- 📊 Line chart with legend -->
+<LineChart fx:id="speedChart" prefHeight="250" prefWidth="560" legendSide="BOTTOM">
+    <xAxis>
+        <CategoryAxis fx:id="xAxis" label="Test Time" />
+    </xAxis>
+    <yAxis>
+        <NumberAxis fx:id="yAxis" label="Speed (Mbps)" lowerBound="0" upperBound="100" tickUnit="20" />
+    </yAxis>
+</LineChart>
+
+
+
+            <!-- 🔘 Close Button -->
+            <Button text="Close" alignment="CENTER" onAction="#handleClose"/>
+        </VBox>
+    </children>
+</AnchorPane>

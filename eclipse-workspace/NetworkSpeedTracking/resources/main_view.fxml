@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.network.speedtracking.MainController"
+            prefWidth="600" prefHeight="400">
+
+    <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+        <Label text="Network Speed Tracker" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+        <HBox spacing="20" alignment="CENTER">
+            <Label fx:id="pingLabel" text="Ping: -" />
+            <Label fx:id="downloadLabel" text="Download: -" />
+            <Label fx:id="uploadLabel" text="Upload: -" />
+        </HBox>
+
+        <Button fx:id="startTestButton" text="Start Test" onAction="#startTest" style="-fx-font-size: 14px;" />
+        <Button text="View History" onAction="#openHistory" />
+
+        <TableView fx:id="tableView" prefHeight="250" prefWidth="560">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="pingColumn" text="Ping (ms)" prefWidth="120"/>
+                <TableColumn fx:id="downloadColumn" text="Download (Mbps)" prefWidth="140"/>
+                <TableColumn fx:id="uploadColumn" text="Upload (Mbps)" prefWidth="140"/>
+                <TableColumn fx:id="timestampColumn" text="Timestamp" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
